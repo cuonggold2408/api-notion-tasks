@@ -15,6 +15,7 @@ app.use(
     secret: "notion-tasks",
     resave: false,
     saveUninitialized: true,
+    cookie: { secure: true, sameSite: "none" },
   })
 );
 
