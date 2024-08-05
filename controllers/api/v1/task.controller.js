@@ -289,24 +289,10 @@ module.exports = {
         );
       }
 
-      await Tasks.update(
-        {
-          is_deleted: false,
-        },
-        {
-          where: {
-            id: task_id,
-            user_id: userId,
-          },
-        }
-      );
+      await task.restore();
 
-      await Tasks.restore({
-        where: {
-          id: task_id,
-          user_id: userId,
-        },
-      });
+      task.is_deleted = false;
+      await task.save();
 
       return successResponse(res, StatusCodes.OK, "Task đã được khôi phục");
     } catch (err) {

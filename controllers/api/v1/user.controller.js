@@ -64,10 +64,18 @@ module.exports = {
       res.cookie("accessToken", newAccessToken, {
         httpOnly: true,
         maxAge: ms("7d"),
+        // cookie: {
+        //   secure: true,
+        //   sameSite: "none",
+        // },
       });
       res.cookie("refreshToken", newRefreshToken, {
         httpOnly: true,
         maxAge: ms("7d"),
+        // cookie: {
+        //   secure: true,
+        //   sameSite: "none",
+        // },
       });
 
       return successResponse(res, StatusCodes.OK, "Refresh token thành công", {

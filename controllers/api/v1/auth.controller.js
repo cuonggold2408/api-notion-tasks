@@ -104,14 +104,14 @@ module.exports = {
 
       res.cookie("accessToken", accessToken, {
         httpOnly: true,
-        secure: false,
-        sameSite: "none",
+        // secure: false,
+        // sameSite: "none",
         maxAge: ms("7 days"),
       });
       res.cookie("refreshToken", refreshToken, {
         httpOnly: true,
-        secure: false,
-        sameSite: "none",
+        // secure: false,
+        // sameSite: "none",
         maxAge: ms("7 days"),
       });
 

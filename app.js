@@ -15,7 +15,7 @@ app.use(
     secret: "notion-tasks",
     resave: false,
     saveUninitialized: true,
-    cookie: { secure: true, sameSite: "none" },
+    // cookie: { secure: true, sameSite: "none" },
   })
 );
 
@@ -40,7 +40,10 @@ app.use(function (err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.render("error");
+  res.json({
+    message: err.message,
+    error: req.app.get("env") === "development" ? err : {},
+  });
 });
 
 module.exports = app;
